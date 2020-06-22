@@ -2,6 +2,7 @@ from flask_restful import Resource,reqparse
 from werkzeug.security import safe_str_cmp
 from flask_jwt_extended import create_access_token,jwt_required
 from db import query
+from .user import *
 import datetime
 
 class Events(Resource):
@@ -46,5 +47,16 @@ class EventRegister(Resource):
             '{data['head']}', '{data['certificate']}', '{data['allow']}', '{data['event_date']}')""")
         except:
             return {"message": "There was an error connecting to eventregister table"}, 500
+
+class AllApprovedEvents(Resource):
+    @jwt_required
+    def get(self):
+        try:
+            return query("""Select event_id, event_name, event_details, head, certificate, allow, event_date from 
+        eventregister where allow=1""")
+        except:
+            return {"message": "couldn't show all events"}
+
+
 
 

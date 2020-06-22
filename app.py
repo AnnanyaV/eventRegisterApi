@@ -32,7 +32,7 @@ api.add_resource(UserLogin, '/userLogin')
 api.add_resource(EventRegister, '/eventRegister')
 api.add_resource(AdminLogin, '/adminLogin')
 api.add_resource(DenyAuthorisation, '/denyAuthorisation')
-
+api.add_resource(AllApprovedEvents, '/allApprovedEvents')
 
 @app.route('/')
 def home():
