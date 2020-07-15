@@ -3,10 +3,10 @@ import pymysql
 from flask import jsonify
 def query(querystr, return_json=True):
     connection= pymysql.connect(
-                                host='database-2.cs5u2lp6velk.us-east-2.rds.amazonaws.com',
+                                host='YOUR HOST',
                                 user='root',
-                                password='annanya1234',
-                                db='flaskevent',
+                                password='YOUR PASSWORD',
+                                db='NAME OF YOUR DB',
         cursorclass=pymysql.cursors.DictCursor
 
     )
